@@ -6,10 +6,10 @@ This project is an e-commerce site where you can buy plants. When go to the webs
 
 You will also be able to sign up and log on to the website where you can then add plants to your cart and check them out. Once you have completed a purchase, you can view your orders by clicking on your email displayed on the top right corner. 
 
-![Schema](./Photos/Schema.png)
+![Wireframe](./Photos/Schema.png)
 ### Wireframe
 
-![Wireframe](.Photos/Wireframe.png) 
+![Wireframe](./Photos/Wireframe.png) 
 
 ### User Stories
 
