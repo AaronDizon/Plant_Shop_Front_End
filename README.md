@@ -12,6 +12,8 @@ You will also be able to sign up and log on to the website where you can then ad
 
 ![Wireframe](./Photos/Wireframe.png) 
 
+![Wireframe](./Photos/Components_chart.png)
+
 ### User Stories
 
 -When I first visit the site, I'm on a home page that just has a simple welcome message.
