@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState , useEffect } from 'react';
 
 import axios from 'axios'
@@ -15,7 +15,11 @@ import Orders from './pages/Orders';
 
 function App() {
   const [user, setUser] = useState({})
-
+  const [allPlants, setAllPants] = useState([])
+  
+  
+  
+  
   const fetchUser = () => {
     const userId = localStorage.getItem('userId')
     if (userId) {
@@ -26,21 +30,42 @@ function App() {
         }
       })
       .then((response) => {
-        console.log(response.data.user.id)
+        
         setUser(response.data.user)
       })
     }
   }
-  console.log(user)
+  
   useEffect(fetchUser, [])
+
+  const fetchPlants=async()=>{
+
+    const plants = await axios.get(`${env.BACKEND_URL}/plant`)
+    setAllPants(plants.data.plants)
+    
+
+  }
+  useEffect(fetchPlants,[])
 
   return (
     <div className="App">
     <NavigationBar setUser={setUser} user={user}/>
     <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/login" element={<Login setUser={setUser} user={user}/>}/>
-        <Route path="/signup" element={<Signup setUser={setUser} user={user}/>}/>
+        <Route path="/" element={<Home allPlants={allPlants}/>}/>
+        <Route path="/login" 
+        element={
+          user.id ?
+          <Navigate to="/"/>
+          :
+          <Login setUser={setUser} user={user}/>}
+          />
+          
+        <Route path="/signup" element={
+          user.id ?
+          <Navigate to="/"/>
+          :
+          <Signup setUser={setUser} user={user}/>}/>
+
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/orders" element={<Orders/>}/>
         <Route path="/" element={<Home/>}/>
