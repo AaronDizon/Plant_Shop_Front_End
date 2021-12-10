@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="App">
-    <NavigationBar/>
+    <NavigationBar setUser={setUser} user={user}/>
     <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login setUser={setUser} user={user}/>}/>

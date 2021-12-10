@@ -7,17 +7,18 @@ import { Link } from 'react-router-dom'
 const Signup =(props)=>{
   console.log('hi')
     const [email, setEmail] = useState('')
+    const [name, setName] = useState('')
     const [password, setPassword] = useState('')
 
     const signupForm = (e) => {
 
         e.preventDefault()
-        axios.post(`${env.BACKEND_URL}/user/login`, { email, password })
+        axios.post(`${env.BACKEND_URL}/user/`, { name,email, password })
         .then((response) => {
             console.log(response)
 
-        // localStorage.setItem('userId', response.data.user.id)
-        // props.setUser(response.data.user)
+        localStorage.setItem('userId', response.data.newUser.id)
+        props.setUser(response.data.newUser)
     })
 }
     return(
@@ -25,7 +26,11 @@ const Signup =(props)=>{
         <div className="sgnLogForm">
            
         <h2>Signup</h2>
-        <form className="LgnFrmCont" onSubmit={console.log('check the function')}>
+        <form className="LgnFrmCont" onSubmit={signupForm}>
+            <div>
+                <label htmlFor="name">User Name:</label>
+                <input value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />

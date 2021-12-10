@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 const Login =(props)=>{
   console.log('hi')
     const [email, setEmail] = useState('')
+ 
     const [password, setPassword] = useState('')
 
     const loginForm = (e) => {
@@ -16,8 +17,8 @@ const Login =(props)=>{
         .then((response) => {
             console.log(response)
 
-        // localStorage.setItem('userId', response.data.user.id)
-        // props.setUser(response.data.user)
+        localStorage.setItem('userId', response.data.user.id)
+        props.setUser(response.data.user)
     })
 }
     return(
@@ -25,7 +26,7 @@ const Login =(props)=>{
         <div className="sgnLogForm">
            
         <h2>Login</h2>
-        <form className="LgnFrmCont" onSubmit={console.log('check the function')}>
+        <form className="LgnFrmCont" onSubmit={loginForm}>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
