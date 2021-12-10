@@ -51,24 +51,24 @@ function App() {
     <div className="App">
     <NavigationBar setUser={setUser} user={user}/>
     <Routes>
-        <Route path="/" element={<Home allPlants={allPlants}/>}/>
+        <Route path="/home" element={<Home allPlants={allPlants}/>}/>
         <Route path="/login" 
         element={
           user.id ?
-          <Navigate to="/"/>
+          <Navigate to="/home"/>
           :
           <Login setUser={setUser} user={user}/>}
           />
           
         <Route path="/signup" element={
           user.id ?
-          <Navigate to="/"/>
+          <Navigate to="/home"/>
           :
           <Signup setUser={setUser} user={user}/>}/>
 
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/orders" element={<Orders/>}/>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
 
     </Routes>
     </div>
