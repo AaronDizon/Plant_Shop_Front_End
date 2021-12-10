@@ -45,6 +45,7 @@ function App() {
     
 
   }
+  
   useEffect(fetchPlants,[])
 
   return (
