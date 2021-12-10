@@ -25,7 +25,7 @@ const Login =(props)=>{
         <div className="sgnLogForm">
            
         <h2>Login</h2>
-        <form onSubmit={console.log('check the function')}>
+        <form className="LgnFrmCont" onSubmit={console.log('check the function')}>
             <div>
                 <label htmlFor="email">Email:</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
