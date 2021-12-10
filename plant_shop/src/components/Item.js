@@ -1,10 +1,16 @@
-const Item=()=>{
+import { Link } from "react-router-dom"
+const Item=(props)=>{
     return(
-        <div>
-            <div className="itemList">
-                <h2>Single Item</h2>
-            </div>
-        </div>
+        
+           
+            <div key={i} className="plantItem">
+                        
+                    <Link to='/home/itemName'>{props.item.name}</Link>
+
+                        
+                        <img src={props.item.image}
+                        /></div>
+    
     )
 }
 
