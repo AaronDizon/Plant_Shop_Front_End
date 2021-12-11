@@ -6,11 +6,11 @@ import Cart from "../pages/Cart"
 
 const ItemDetails =(props)=>{
 
-    let array 
+   
 
     const [plant, setPlantInfo] = useState({})
     const {id} = useParams()
-    const plantUrl = `${env.BACKEND_URL}/plant/${id}`
+    const plantUrl = `http://localhost:3001/plant/${id}`
    
     useEffect(()=>{
     const getOnePlant = async() => {       

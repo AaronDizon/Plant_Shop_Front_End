@@ -28,8 +28,8 @@ function App() {
     const fetchUser = () => {
     const userId = localStorage.getItem('userId')
     if (userId) {
-       console.log(localStorage.getItem('userId'))
-      axios.get(`${env.BACKEND_URL}/user/verify`, {
+       //console.log(localStorage.getItem('userId'))
+      axios.get(`http://localhost:3001/user/verify`, {
         headers: {
           Authorization: userId
         }
@@ -43,11 +43,18 @@ function App() {
   fetchUser()
 }, [user.id])
 
+const deleteItem= (i)=>{
+  cartList.splice(i,1)
+  console.log(cartList)
+}
+
+
+
 
   useEffect(()=>{
   const fetchPlants =async()=>{
 
-    const plants = await axios.get(`${env.BACKEND_URL}/plant`)
+    const plants = await axios.get(`http://localhost:3001/plant`)
     setAllPants(plants.data.plants)
     
 
@@ -55,7 +62,8 @@ function App() {
    fetchPlants()
   },
   [])
-
+  
+  
   
   return (
     <div className="App">
@@ -77,7 +85,7 @@ function App() {
           :
           <Signup setUser={setUser} user={user}/>}/>
 
-        <Route path="/cart" element={<Cart cartList={cartList} setCartList={setCartList} total_price={total_price} setTotal={setTotal}/>}/>
+        <Route path="/cart" element={<Cart cartList={cartList} setCartList={setCartList} total_price={total_price} setTotal={setTotal} deleteItem={deleteItem}/>}/>
         <Route path="/cart/checkout" element={<Checkout total_price={total_price} setTotal={setTotal}/>}/>
         <Route path="/orders" element={<Orders/>}/>
         <Route path="/" element={<Home/>}/>
