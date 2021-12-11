@@ -17,10 +17,10 @@ import Checkout from './pages/Checkout';
 
 function App() {
 
-
   const [user, setUser] = useState({})
   const [allPlants, setAllPants] = useState([])
-  
+  const [cartList, setCartList] = useState([])
+  const [total_price, setTotal] = useState(0)
   
   
   
@@ -57,13 +57,12 @@ function App() {
   [])
 
   
-  
   return (
     <div className="App">
     <NavigationBar setUser={setUser} user={user}/>
     <Routes>
         <Route path="/" element={<Home allPlants={allPlants}/>}/>
-        <Route path="/:id" element={<ItemDetails user={user} />}/>
+        <Route path="/:id" element={<ItemDetails user={user} cartList={cartList} setCartList= {setCartList} total_price={total_price} setTotal={setTotal}/>} />
         <Route path="/login" 
         element={
           user.id ?
@@ -78,8 +77,8 @@ function App() {
           :
           <Signup setUser={setUser} user={user}/>}/>
 
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/cart/checkout" element={<Checkout/>}/>
+        <Route path="/cart" element={<Cart cartList={cartList} setCartList={setCartList} total_price={total_price} setTotal={setTotal}/>}/>
+        <Route path="/cart/checkout" element={<Checkout total_price={total_price} setTotal={setTotal}/>}/>
         <Route path="/orders" element={<Orders/>}/>
         <Route path="/" element={<Home/>}/>
 
