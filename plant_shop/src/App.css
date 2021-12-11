@@ -62,3 +62,19 @@
 .plantItem img:hover{
   cursor: pointer;
 }
+
+.CheckoutForm{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 10vmin;
+}
+
+.CheckoutForm div{
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .5vmin;
+  padding: .3vmin;
+  justify-items: flex-end;
+}

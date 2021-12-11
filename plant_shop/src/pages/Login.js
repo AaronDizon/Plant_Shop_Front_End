@@ -26,6 +26,7 @@ const Login =(props)=>{
         <div className="sgnLogForm">
            
         <h2>Login</h2>
+        
         <form className="LgnFrmCont" onSubmit={loginForm}>
             <div>
                 <label htmlFor="email">Email:</label>

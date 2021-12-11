@@ -2,14 +2,15 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import env from "react-dotenv"
 import axios from "axios"
-import userEvent from "@testing-library/user-event"
 
 const ItemDetails =(props)=>{
 
     const [plant, setPlantInfo] = useState({})
     const {id} = useParams()
     const plantUrl = `${env.BACKEND_URL}/plant/${id}`
-
+    
+    
+    useEffect(()=>{
     const getOnePlant = async() => {       
         try{
 
@@ -22,12 +23,13 @@ const ItemDetails =(props)=>{
             console.log(err)
         }
      }
-     useEffect(getOnePlant,[])
+     getOnePlant()
+    },[])
     
 return(
     <div className="singlePlant">
     <h1>{plant.name}</h1>
-    <img className="indPlant" src={`${plant.image}`}/>
+    <img className="indPlant" src={`${plant.image}`} alt={`${plant.name}`}/>
     <p>{plant.description}</p>
     <h4>${plant.price}</h4>
     {props.user.id ?

@@ -14,7 +14,7 @@ return(
             localStorage.removeItem('userId')
             props.setUser({})
         }}>Logout</p>
-        <h4>User</h4>
+        <h4>{props.user.name}</h4>
         <Link className="NavLink" to="/cart">Cart</Link>
         <Link  className="NavLink"to="/orders">Previous Orders</Link>
         </div>

@@ -13,6 +13,7 @@ import Signup from './pages/SignUp'
 import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import ItemDetails from './components/ItemDetails';
+import Checkout from './pages/Checkout';
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
   
   
   
-  const fetchUser = () => {
+  useEffect(()=>{
+    const fetchUser = () => {
     const userId = localStorage.getItem('userId')
     if (userId) {
        console.log(localStorage.getItem('userId'))
@@ -38,18 +40,21 @@ function App() {
       })
     }
   }
-  
-  useEffect(fetchUser, [])
+  fetchUser()
+}, [user.id])
 
-  const fetchPlants=async()=>{
+
+  useEffect(()=>{
+  const fetchPlants =async()=>{
 
     const plants = await axios.get(`${env.BACKEND_URL}/plant`)
     setAllPants(plants.data.plants)
     
 
   }
-  
-  useEffect(fetchPlants,[])
+   fetchPlants()
+  },
+  [])
 
   
   
@@ -74,6 +79,7 @@ function App() {
           <Signup setUser={setUser} user={user}/>}/>
 
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/cart/checkout" element={<Checkout/>}/>
         <Route path="/orders" element={<Orders/>}/>
         <Route path="/" element={<Home/>}/>
 

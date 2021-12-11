@@ -14,7 +14,7 @@ const Item=(props)=>{
                         
                         
                     <Link to={`/${props.item.id}`}>
-                    <img src={props.item.image}/>
+                    <img src={props.item.image} alt={`${props.item.name}`}/>
                     </Link>
 
                         </div>
