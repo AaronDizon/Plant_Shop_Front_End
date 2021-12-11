@@ -2,14 +2,16 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import env from "react-dotenv"
 import axios from "axios"
+import Cart from "../pages/Cart"
 
 const ItemDetails =(props)=>{
+
+    let array 
 
     const [plant, setPlantInfo] = useState({})
     const {id} = useParams()
     const plantUrl = `${env.BACKEND_URL}/plant/${id}`
-    
-    
+   
     useEffect(()=>{
     const getOnePlant = async() => {       
         try{
@@ -25,6 +27,8 @@ const ItemDetails =(props)=>{
      }
      getOnePlant()
     },[])
+
+
     
 return(
     <div className="singlePlant">
@@ -33,7 +37,11 @@ return(
     <p>{plant.description}</p>
     <h4>${plant.price}</h4>
     {props.user.id ?
-    <button>Add to Cart</button>
+    <button onClick={() => {
+
+        props.setCartList([...props.cartList, plant])
+        props.setTotal(Number(props.total_price) + Number(plant.price))
+    }}>Add to Cart</button>
     :
     null
 }

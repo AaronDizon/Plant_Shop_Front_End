@@ -6,7 +6,7 @@ const Checkout = (props)=>{
 
     const [shipping_address, setShippingAdd] = useState('')
     const [credit_card_number, setCardNumber] = useState(0)
-    const [total_price, setTotal] = useState(0)
+ 
 
     return(
         <div className="Checkout"> 
@@ -31,8 +31,8 @@ const Checkout = (props)=>{
               <div>
             <label>Total Price</label>
             <input
-             value={total_price}
-             onChange={(e)=>{setTotal(e.target.value)}
+             value={props.total_price}
+             onChange={(e)=>{props.setTotal(e.target.value)}
             }
              />
              </div>
