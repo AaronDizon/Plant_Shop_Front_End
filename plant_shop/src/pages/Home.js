@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import axios from "axios"
 import env from "react-dotenv"
 import Item from "../components/Item"
@@ -11,9 +10,7 @@ const Home =(props)=>{
             {props.allPlants.map((item, i) => {
                 
                 return(
-
-                    
-                    <Item item={item}/>
+                    <Item key={i}  item={item}/>
                     
                 )
             } )}

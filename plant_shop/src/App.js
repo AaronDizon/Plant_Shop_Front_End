@@ -12,8 +12,11 @@ import Home from './pages/Home';
 import Signup from './pages/SignUp'
 import Cart from './pages/Cart';
 import Orders from './pages/Orders';
+import ItemDetails from './components/ItemDetails';
 
 function App() {
+
+
   const [user, setUser] = useState({})
   const [allPlants, setAllPants] = useState([])
   
@@ -48,28 +51,31 @@ function App() {
   
   useEffect(fetchPlants,[])
 
+  
+  
   return (
     <div className="App">
     <NavigationBar setUser={setUser} user={user}/>
     <Routes>
-        <Route path="/home" element={<Home allPlants={allPlants}/>}/>
+        <Route path="/" element={<Home allPlants={allPlants}/>}/>
+        <Route path="/:id" element={<ItemDetails user={user} />}/>
         <Route path="/login" 
         element={
           user.id ?
-          <Navigate to="/home"/>
+          <Navigate to="/"/>
           :
           <Login setUser={setUser} user={user}/>}
           />
           
         <Route path="/signup" element={
           user.id ?
-          <Navigate to="/home"/>
+          <Navigate to="/"/>
           :
           <Signup setUser={setUser} user={user}/>}/>
 
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/orders" element={<Orders/>}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
 
     </Routes>
     </div>

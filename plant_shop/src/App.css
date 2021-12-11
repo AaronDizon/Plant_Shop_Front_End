@@ -50,3 +50,15 @@
   align-items: flex-end;
   padding: 1.5vmin;
 }
+
+.indPlant{
+  height: 60vmin;
+  width: 50vmin;
+}
+.plantItem img{
+  height: 60vmin;
+  width: 50vmin;
+}
+.plantItem img:hover{
+  cursor: pointer;
+}
