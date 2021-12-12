@@ -85,3 +85,8 @@
   justify-content: space-around;
 }
 
+.itemCheckout{
+  display: flex;
+  flex-direction: column;
+}
+

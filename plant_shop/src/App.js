@@ -21,14 +21,14 @@ function App() {
   const [allPlants, setAllPants] = useState([])
   const [cartList, setCartList] = useState([])
   const [total_price, setTotal] = useState(0)
-  
+  const [order, setOrder] = useState(false)
   
   
   useEffect(()=>{
     const fetchUser = () => {
     const userId = localStorage.getItem('userId')
     if (userId) {
-       //console.log(localStorage.getItem('userId'))
+       
       axios.get(`http://localhost:3001/user/verify`, {
         headers: {
           Authorization: userId
@@ -86,7 +86,11 @@ const deleteItem= (i)=>{
           <Signup setUser={setUser} user={user}/>}/>
 
         <Route path="/cart" element={<Cart cartList={cartList} setCartList={setCartList} total_price={total_price} setTotal={setTotal} deleteItem={deleteItem}/>}/>
-        <Route path="/cart/checkout" element={<Checkout total_price={total_price} setTotal={setTotal}/>}/>
+        <Route path="/cart/checkout" element={
+          order ?
+          <Navigate to='/orders'/>
+          :
+          <Checkout user={user} total_price={total_price} setTotal={setTotal} cartList={cartList} setCartList={setCartList} order={order} setOrder={setOrder}/>}/>
         <Route path="/orders" element={<Orders/>}/>
         <Route path="/" element={<Home/>}/>
 

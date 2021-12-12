@@ -13,7 +13,7 @@ const Signup =(props)=>{
     const signupForm = (e) => {
 
         e.preventDefault()
-        axios.post(`${env.BACKEND_URL}/user/`, { name,email, password })
+        axios.post(`http://localhost:3001/user/`, { name,email, password })
         .then((response) => {
             console.log(response)
 
