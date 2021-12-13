@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import axios from "axios"
 
 
@@ -11,23 +11,23 @@ const Checkout = (props)=>{
     const [plantOrder, setPlantOrder] = useState([])
     
     
-    console.log(props.user.id)
+   
     
     const createOrder=async (e)=>{
+       
         e.preventDefault()
-        console.log(props.cartList)
         
         props.cartList.map((item)=>{
-            console.log(item)
           
-            return(
-                
-                // setPlantOrder(item.id , ...plantOrder),
-                 console.log(plantOrder)
-
-                )
-            })
-            await axios.post(`http://localhost:3001/order/${props.user.id}`, {shipping_address,credit_card_number,total}, [plantOrder] )
+        plantOrder.push(item.id)
+            
+        })
+        setPlantOrder([...plantOrder])
+      
+        await axios.post(`http://localhost:3001/order/${props.user.id}`, {shipping_address,credit_card_number,total, plantOrder}  )
+        
+       
+        
     }
 
     
@@ -78,8 +78,9 @@ const Checkout = (props)=>{
                      })
                  }
              </div>
-            {/* //<Link to="/orders"></Link> */}
                 <input type='submit' value='checkout'/>
+            <Link to="/orders"><p>checkout</p></Link>
+            
         </form>
         </div>
     )

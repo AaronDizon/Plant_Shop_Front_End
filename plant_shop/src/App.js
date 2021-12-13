@@ -45,9 +45,13 @@ function App() {
 
 const deleteItem= (i)=>{
   cartList.splice(i,1)
-  console.log(cartList)
-}
+  let array = cartList
+  console.log('app.js cart list',array)
+  setCartList(array)
 
+
+}
+ 
 
 
 
@@ -67,7 +71,7 @@ const deleteItem= (i)=>{
   
   return (
     <div className="App">
-    <NavigationBar setUser={setUser} user={user}/>
+    <NavigationBar setUser={setUser} user={user} setCartList={setCartList} setTotal={setTotal}/>
     <Routes>
         <Route path="/" element={<Home allPlants={allPlants}/>}/>
         <Route path="/:id" element={<ItemDetails user={user} cartList={cartList} setCartList= {setCartList} total_price={total_price} setTotal={setTotal}/>} />
@@ -85,13 +89,25 @@ const deleteItem= (i)=>{
           :
           <Signup setUser={setUser} user={user}/>}/>
 
-        <Route path="/cart" element={<Cart cartList={cartList} setCartList={setCartList} total_price={total_price} setTotal={setTotal} deleteItem={deleteItem}/>}/>
+        <Route path="/cart" element={
+        user.id ?
+        <Cart cartList={cartList} setCartList={setCartList} total_price={total_price} setTotal={setTotal} deleteItem={deleteItem}/>
+        :
+        <Navigate to="/"/>
+      }
+        />
         <Route path="/cart/checkout" element={
-          order ?
-          <Navigate to='/orders'/>
-          :
-          <Checkout user={user} total_price={total_price} setTotal={setTotal} cartList={cartList} setCartList={setCartList} order={order} setOrder={setOrder}/>}/>
-        <Route path="/orders" element={<Orders/>}/>
+          user.id ?
+          <Checkout user={user} total_price={total_price} setTotal={setTotal} cartList={cartList} setCartList={setCartList} order={order} setOrder={setOrder}/>
+        :
+        <Navigate to="/"/>
+        }/>
+        <Route path="/orders" element={
+          user.id ?
+        <Orders/>
+      :
+      <Navigate to="/"/>
+      }/>
         <Route path="/" element={<Home/>}/>
 
     </Routes>

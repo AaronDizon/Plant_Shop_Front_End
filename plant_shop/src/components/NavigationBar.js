@@ -13,6 +13,8 @@ return(
         <p onClick={()=>{
             localStorage.removeItem('userId')
             props.setUser({})
+            props.setCartList([])
+            props.setTotal(0)
         }}>Logout</p>
         <h4>{props.user.name}</h4>
         <Link className="NavLink" to="/cart">Cart</Link>

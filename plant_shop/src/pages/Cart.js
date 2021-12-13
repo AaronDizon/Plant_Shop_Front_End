@@ -5,36 +5,24 @@ import { useState , useEffect } from 'react';
 
 const Cart=(props)=>{
     
-    
+ 
 
-    // function 
-
-    
-    /* const removeItem = (item) => {
-
-    }
-
-    */
-
-
-
-
-
-
-    return(
-        <div className="Cart">
+return(
+    <div className="Cart">
         <h1>Whatever you wanna buy ;)</h1>
-            {
-
-                props.cartList.map((item, i) => {
-                
+        {console.log('cart list',props.cartList)}
+           {
+               
+               props.cartList.map((item, i) => {
+                console.log('item',item)
                 return(
                     <div key={i} className="cartItem">
                         <h4>{item.name}</h4> 
                         <p>- ${item.price}</p>
                         <button onClick={()=>{
                             props.deleteItem(i)
-                            
+                            props.setCartList([...props.cartList])
+                            props.setTotal(Number(props.total_price) - Number(item.price))
                             }}>Remove Item</button>
                     </div>
 
