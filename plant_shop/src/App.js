@@ -109,7 +109,7 @@ const deleteItem= (i)=>{
       :
       <Navigate to="/"/>
       }/>
-      <Route path="/orders/order" element={<SingleOrder />} />
+      <Route path="/orders/:orderId" element={<SingleOrder />} />
         <Route path="/" element={<Home/>}/>
 
     </Routes>
