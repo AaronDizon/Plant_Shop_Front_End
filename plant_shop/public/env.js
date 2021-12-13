@@ -11,7 +11,7 @@ window.env = {
   "npm_config_global_prefix": "/opt/homebrew",
   "TERM_PROGRAM_VERSION": "440",
   "COLOR": "1",
-  "TERM_SESSION_ID": "06D4037F-94AE-430C-986A-D05C8401FD18",
+  "TERM_SESSION_ID": "8668FF19-1AB2-4410-A357-8396AC257818",
   "npm_config_noproxy": "",
   "npm_config_local_prefix": "/Users/aarondizon/Desktop/GA_SEIR_1011/projects/project03/group_project/Plant_Shop_Front_End/plant_shop",
   "ZSH": "/Users/aarondizon/.oh-my-zsh",

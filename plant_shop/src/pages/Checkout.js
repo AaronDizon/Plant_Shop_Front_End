@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, Navigate } from "react-router-dom"
+import { Link, Navigate, useNavigate} from "react-router-dom"
 import axios from "axios"
 
 
@@ -13,7 +13,7 @@ const Checkout = (props)=>{
     const [credit_card_number, setCardNumber] = useState(0)
     const [total, setTot] = useState(props.total_price)
     const [plantOrder, setPlantOrder] = useState([])
-    
+    let history = useNavigate()
     
    
     
@@ -35,6 +35,9 @@ const Checkout = (props)=>{
         setShippingAdd('')
         setCardNumber(0)
         props.setTotal(0)
+
+        history("/")
+
         
     }
 
@@ -93,8 +96,10 @@ const Checkout = (props)=>{
             }
             }
                 />
-                <input type='submit' onClick={()=> {}}value='checkout'/>
-            <Link to="/orders"><p>checkout</p></Link>
+                <input type='submit' onClick={()=> {
+                    <Navigate to="/" />
+                }} value='checkout'/>
+             {/* <Link to="/orders"><p>checkout</p></Link> */}
             
         </form>
         </div>
