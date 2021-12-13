@@ -7,7 +7,7 @@ const Checkout = (props)=>{
 
     const [shipping_address, setShippingAdd] = useState('')
     const [credit_card_number, setCardNumber] = useState(0)
-    const [total, setTot] = useState(0)
+    const [total, setTot] = useState(props.total_price)
     const [plantOrder, setPlantOrder] = useState([])
     
     
@@ -26,8 +26,10 @@ const Checkout = (props)=>{
       
         await axios.post(`http://localhost:3001/order/${props.user.id}`, {shipping_address,credit_card_number,total, plantOrder}  )
         
-       
-        
+        props.setCartList([])
+        setShippingAdd('')
+        setCardNumber(0)
+        props.setTotal(0)
     }
 
     
@@ -58,8 +60,9 @@ const Checkout = (props)=>{
             <label>Total Price</label>
             <input
              value={props.total_price}
-             onChange={(e)=>{props.setTotal(e.target.value)
+             onChange={(e)=>{props.setTot(e.target.value)
                setTot(props.total_price)
+          
             }
             }
              />
