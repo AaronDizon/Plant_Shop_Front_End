@@ -98,7 +98,7 @@ const deleteItem= (i)=>{
         />
         <Route path="/cart/checkout" element={
           user.id ?
-          <Checkout user={user} total_price={total_price} setTotal={setTotal} cartList={cartList} setCartList={setCartList} order={order} setOrder={setOrder}/>
+          <Checkout user={user} total_price={total_price} setTotal={setTotal} cartList={cartList} setCartList={setCartList} order={order} setOrder={setOrder} setOrder={setOrder}/>
         :
         <Navigate to="/"/>
         }/>

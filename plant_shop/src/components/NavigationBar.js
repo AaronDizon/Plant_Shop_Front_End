@@ -23,8 +23,8 @@ return(
         </>
         :
         <>
-            <Link className="NavLink" to="/login" >Login</Link>
-            <Link className="NavLink" to="/signup">Signup</Link>
+        <Link className="NavLink" to="/login" >Login</Link>
+        <Link className="NavLink" to="/signup">Signup</Link>
         
         
         </>
