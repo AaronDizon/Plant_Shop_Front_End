@@ -9,7 +9,11 @@ window.env = {
   "npm_config_global_prefix": "/usr/local",
   "TERM_PROGRAM_VERSION": "433",
   "COLOR": "1",
+<<<<<<< HEAD
   "TERM_SESSION_ID": "95BC7F32-A546-4373-8B7D-120D2235068B",
+=======
+  "TERM_SESSION_ID": "06D4037F-94AE-430C-986A-D05C8401FD18",
+>>>>>>> 335b7e50a66c990c41a85396817642480a15b0af
   "npm_config_noproxy": "",
   "npm_config_local_prefix": "/Users/marcolux/Ga/unit 3/project/Plant_Shop_Front_End/plant_shop",
   "USER": "marcolux",

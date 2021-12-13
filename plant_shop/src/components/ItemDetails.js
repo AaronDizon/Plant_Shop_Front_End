@@ -10,6 +10,7 @@ const ItemDetails =(props)=>{
 
     const [plant, setPlantInfo] = useState({})
     const {id} = useParams()
+    console.log(id)
     const plantUrl = `http://localhost:3001/plant/${id}`
    
     useEffect(()=>{
