@@ -35,7 +35,7 @@ const Checkout = (props)=>{
         setCardNumber(0)
         props.setTotal(0)
 
-        history("/")
+        history("/orders")
 
         
     }
