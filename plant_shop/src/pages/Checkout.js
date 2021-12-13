@@ -5,6 +5,9 @@ import axios from "axios"
 
 const Checkout = (props)=>{
 
+
+    
+    const [date, setDate] = useState(new Date())
     const [shipping_address, setShippingAdd] = useState('')
     const [credit_card_number, setCardNumber] = useState(0)
     const [total, setTot] = useState(0)
@@ -97,7 +100,7 @@ const Checkout = (props)=>{
                 <input type='submit' onClick={()=> {
                     <Navigate to="/" />
                 }} value='checkout'/>
-             {/* <Link to="/orders"><p>checkout</p></Link> */}
+            
             
         </form>
         </div>
