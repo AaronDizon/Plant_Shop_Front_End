@@ -22,13 +22,12 @@ const SingleOrder=()=>{
             }
         }
         getOrder()
-    }, [])
+    }, [orderId])
 
-    // useEffect(getOrder, [])
 
     return(
       
-        // <>Hi {console.log(info)}</>
+
 
         
         <div className ="SingleOrder">
@@ -42,7 +41,7 @@ const SingleOrder=()=>{
             <h4>
                 {info.plants.map((item, i)=> {
                     return(
-                        <div>
+                        <div key={i}>
                             {item.name}
                             <p> ${item.price}</p>
                         </div>

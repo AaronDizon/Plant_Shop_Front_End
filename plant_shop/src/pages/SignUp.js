@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-import env from 'react-dotenv'
+// import env from 'react-dotenv'
 import { Link } from 'react-router-dom'
 
 const Signup =(props)=>{

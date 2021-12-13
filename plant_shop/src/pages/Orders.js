@@ -1,25 +1,25 @@
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import SingleOrder from "../components/SingleOrder"
+
 
 const Orders =(props)=>{
 
     const [userOrders, setUserOrders] = useState([])
 
+
+    useEffect(()=>{
     const getOrders = async (req, res) => {
         try{
             let orders = await axios.get(`http://localhost:3001/order/${props.user.id}`)
-            console.log(orders.data.orders)
 
             setUserOrders(orders.data.orders)
         }catch (err) {
             console.log(err)
         }
     }
-
-   useEffect(getOrders, [])
-
+    getOrders() 
+    },[props.user.id])
     return (
         <div className="PrevOrders"> 
         <h2>Whatever you already spent!</h2>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import env from "react-dotenv"
+// import env from "react-dotenv"
 import axios from "axios"
-import Cart from "../pages/Cart"
+
 
 const ItemDetails =(props)=>{
 

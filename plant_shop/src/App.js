@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState , useEffect } from 'react';
 
 import axios from 'axios'
-import env from 'react-dotenv'
+// import env from 'react-dotenv'
 
 import NavigationBar from './components/NavigationBar';
 import Login from './pages/Login'
@@ -99,7 +99,7 @@ const deleteItem= (i)=>{
         />
         <Route path="/cart/checkout" element={
           user.id ?
-          <Checkout user={user} total_price={total_price} setTotal={setTotal} cartList={cartList} setCartList={setCartList} order={order} setOrder={setOrder} setOrder={setOrder}/>
+          <Checkout user={user} total_price={total_price} setTotal={setTotal} cartList={cartList} setCartList={setCartList} order={order} setOrder={setOrder}/>
         :
         <Navigate to="/"/>
         }/>

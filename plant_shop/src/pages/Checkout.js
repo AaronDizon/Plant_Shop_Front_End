@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, Navigate, useNavigate} from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import axios from "axios"
 
 
@@ -19,14 +19,13 @@ const Checkout = (props)=>{
     const createOrder=async (e)=>{
        
         e.preventDefault()
-        
+
         props.cartList.map((item)=>{
-          
+        return(
         plantOrder.push(item.id)
-            
-        })
+        )})
         setPlantOrder([...plantOrder])
-      
+    
         await axios.post(`http://localhost:3001/order/${props.user.id}`, {date, shipping_address,credit_card_number,total, plantOrder}  )
         
         props.setCartList([])
@@ -34,15 +33,15 @@ const Checkout = (props)=>{
         setShippingAdd('')
         setCardNumber(0)
         props.setTotal(0)
-
+        
         history("/orders")
-
+    
         
     }
 
     
 
-
+    // setTot(props.total_price)
 
     return(
         <div className="Checkout"> 
@@ -87,15 +86,8 @@ const Checkout = (props)=>{
                     }
              </div>
             <label>Total Price</label>
-            <input
-                value={props.total_price}
-                onChange={(e)=>{props.setTot(e.target.value)
-                setTot(props.total_price)
-            
-            }
-            }
-                />
-                <input type='submit' value='checkout'/>
+            <p>{props.total_price}</p>
+            <input type='submit' value='checkout'/>
             
             
         </form>
