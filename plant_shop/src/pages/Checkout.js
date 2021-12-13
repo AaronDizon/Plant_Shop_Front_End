@@ -10,9 +10,9 @@ const Checkout = (props)=>{
     const [date, setDate] = useState(new Date())
     const [shipping_address, setShippingAdd] = useState('')
     const [credit_card_number, setCardNumber] = useState(0)
-    const [total, setTot] = useState(0)
+    const [total, setTot] = useState(props.total_price)
     const [plantOrder, setPlantOrder] = useState([])
-    let    history = useNavigate()
+    let history = useNavigate()
     
    
     
@@ -27,13 +27,14 @@ const Checkout = (props)=>{
         })
         setPlantOrder([...plantOrder])
       
-        await axios.post(`http://localhost:3001/order/${props.user.id}`, {shipping_address,credit_card_number, total , plantOrder}  )
+        await axios.post(`http://localhost:3001/order/${props.user.id}`, {date, shipping_address,credit_card_number,total, plantOrder}  )
         
         props.setCartList([])
         setDate('')
         setShippingAdd('')
         setCardNumber(0)
         props.setTotal(0)
+
         history("/")
 
         
@@ -47,8 +48,16 @@ const Checkout = (props)=>{
         <div className="Checkout"> 
         <h1>Checkout Page</h1>
         <form className="CheckoutForm" onSubmit={createOrder}>
+            <div>
+              <label>Date</label>
+            <input
+             value={date}
+             onChange={(e)=>{setShippingAdd(e.target.value)}
+            }
+             />
+           </div>
             <div >
-                <label>Shipping Address</label>
+            <label>Shipping Address</label>
             <input
              value={shipping_address}
              onChange={(e)=>{setShippingAdd(e.target.value)}
@@ -63,29 +72,19 @@ const Checkout = (props)=>{
             }
               />
               </div>
-              <div>
-            <label>Total Price</label>
-            <input
-             value={props.total_price}
-             onChange={(e)=>{props.setTotal(e.target.value)
-               setTot(props.total_price)
-            }
-            }
-             />
-             </div>
              <div className="itemCheckout">
                  {
                      props.cartList.map((item,i)=>{
                          
                          return(
-                         <div  key={i}>
+                             <div  key={i}>
                          <p>{item.name}</p>
                          <p>{item.price}</p>
                         
                          </div>
                          )
-                     })
-                 }
+                        })
+                    }
              </div>
             <label>Total Price</label>
             <input
