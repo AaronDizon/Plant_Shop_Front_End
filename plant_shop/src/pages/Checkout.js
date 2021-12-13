@@ -9,7 +9,7 @@ const Checkout = (props)=>{
     const [credit_card_number, setCardNumber] = useState(0)
     const [total, setTot] = useState(0)
     const [plantOrder, setPlantOrder] = useState([])
-    let history = useNavigate()
+    let    history = useNavigate()
     
    
     
@@ -26,9 +26,6 @@ const Checkout = (props)=>{
       
         await axios.post(`http://localhost:3001/order/${props.user.id}`, {shipping_address,credit_card_number, total , plantOrder}  )
         
-<<<<<<< HEAD
-       
-=======
         props.setCartList([])
         setDate('')
         setShippingAdd('')
@@ -37,7 +34,6 @@ const Checkout = (props)=>{
 
         history("/")
 
->>>>>>> cd23b96dc7030997ca3c539ae194a0c36838ae0b
         
     }
 
@@ -89,10 +85,6 @@ const Checkout = (props)=>{
                      })
                  }
              </div>
-<<<<<<< HEAD
-                <input type='submit' value='checkout'/>
-            <Link to="/orders"><p>checkout</p></Link>
-=======
             <label>Total Price</label>
             <input
                 value={props.total_price}
@@ -106,7 +98,6 @@ const Checkout = (props)=>{
                     <Navigate to="/" />
                 }} value='checkout'/>
              {/* <Link to="/orders"><p>checkout</p></Link> */}
->>>>>>> cd23b96dc7030997ca3c539ae194a0c36838ae0b
             
         </form>
         </div>
