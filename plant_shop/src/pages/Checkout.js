@@ -95,9 +95,7 @@ const Checkout = (props)=>{
             }
             }
                 />
-                <input type='submit' onClick={()=> {
-                    <Navigate to="/" />
-                }} value='checkout'/>
+                <input type='submit' value='checkout'/>
             
             
         </form>
