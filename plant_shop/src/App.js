@@ -14,6 +14,7 @@ import Cart from './pages/Cart';
 import Orders from './pages/Orders';
 import ItemDetails from './components/ItemDetails';
 import Checkout from './pages/Checkout';
+import SingleOrder from './components/SingleOrder';
 
 function App() {
 
@@ -104,10 +105,11 @@ const deleteItem= (i)=>{
         }/>
         <Route path="/orders" element={
           user.id ?
-        <Orders/>
+        <Orders user={user}/>
       :
       <Navigate to="/"/>
       }/>
+      <Route path="/orders/order" element={<SingleOrder />} />
         <Route path="/" element={<Home/>}/>
 
     </Routes>
