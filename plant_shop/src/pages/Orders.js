@@ -22,7 +22,7 @@ const Orders =(props)=>{
     },[props.user.id])
     return (
         <div className="PrevOrders"> 
-        <h2>Whatever you already spent!</h2>
+        <h2>Previous Orders</h2>
         
         {userOrders.map((item, i) => {
             return (
