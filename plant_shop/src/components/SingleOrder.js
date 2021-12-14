@@ -32,23 +32,22 @@ const SingleOrder=()=>{
         
         <div className ="SingleOrder">
             {info.order ?
-            <>
-            <h3>Single Order</h3>
-            <h2>Order Number{info.order.id}</h2>
-            <h4>{info.order.date}</h4>
-            <h4> Total Price: ${info.order.total_price}</h4>
-            <h2>Items:</h2>
-            <h4>
+            <div className="orderPage">
+            <h4>Order Number{info.order.id}</h4>
+            <h4>Items:</h4>
+            <p>
                 {info.plants.map((item, i)=> {
                     return(
-                        <div key={i}>
-                            {item.name}
+                        <div key={i} className="itemPrice">
+                            <p>{item.name}</p>
                             <p> ${item.price}</p>
                         </div>
                     )
                 })}
-            </h4>
-            </>
+            </p>
+            <h3> Total Price: ${info.order.total_price}</h3>
+            <h3>{info.order.date}</h3>
+            </div>
             :
             <h4>Loading...</h4>
             }

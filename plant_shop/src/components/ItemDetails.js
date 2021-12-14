@@ -36,6 +36,7 @@ return(
     <h1>{plant.name}</h1>
     <img className="indPlant" src={`${plant.image}`} alt={`${plant.name}`}/>
     <p>{plant.description}</p>
+    <div className="plantPrice">
     <h4>${plant.price}</h4>
     {props.user.id ?
     <button onClick={() => {
@@ -46,6 +47,7 @@ return(
     :
     null
 }
+    </div>
     </div>
 )
 }

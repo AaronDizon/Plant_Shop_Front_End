@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 
 // import env from 'react-dotenv'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const Login =(props)=>{
   console.log('hi')
@@ -28,21 +28,20 @@ const Login =(props)=>{
         <h2>Login</h2>
         
         <form className="LgnFrmCont" onSubmit={loginForm}>
-            <div>
+            <div className='formInput'>
                 <label htmlFor="email">Email:</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <div>
+            <div className='formInput'>
                 <label htmlFor="password">Password:</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <div>
-                <input type="submit" value="Log In" />
+            <div className='formInput'>
+                <input className='formButton' type="submit" value="Log In" />
             </div>
         </form>
         <div className="NavigateHome">
-        <Link to='/signup'>Signup</Link> 
-        <Link to='/'>Home</Link>  
+        
         </div>
         
         </div>

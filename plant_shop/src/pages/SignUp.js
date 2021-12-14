@@ -27,25 +27,24 @@ const Signup =(props)=>{
            
         <h2>Signup</h2>
         <form className="LgnFrmCont" onSubmit={signupForm}>
-            <div>
-                <label htmlFor="name">User Name:</label>
+            <div className='formInput'>
+                <label htmlFor="name" id='userName'>User Name:</label>
                 <input value={name} onChange={(e) => setName(e.target.value)} />
             </div>
-            <div>
+            <div className='formInput'>
                 <label htmlFor="email">Email:</label>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
-            <div>
+            <div className='formInput'>
                 <label htmlFor="password">Password:</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <div>
-                <input type="submit" value="Submit" />
+            <div className='formInput'>
+                <input className='formButton' type="submit" value="Submit" />
             </div>
         </form>
         <div className="NavigateHome">
-        <Link to='/login'>login</Link> 
-        <Link to='/'>Home</Link>  
+       
         </div>
         
         </div>

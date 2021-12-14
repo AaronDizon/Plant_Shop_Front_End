@@ -10,16 +10,16 @@ return(
         { props.user.id ?
         <>
         <div className="userCorner">
-        <p onClick={()=>{
+        <h4>{props.user.name}</h4>
+        <p className="logout" onClick={()=>{
             localStorage.removeItem('userId')
             props.setUser({})
             props.setCartList([])
             props.setTotal(0)
         }}>Logout</p>
-        <h4>{props.user.name}</h4>
+        </div>
         <Link className="NavLink" to="/cart">Cart</Link>
         <Link  className="NavLink"to="/orders">Previous Orders</Link>
-        </div>
         </>
         :
         <>

@@ -4,8 +4,9 @@ import Item from "../components/Item"
 
 const Home =(props)=>{
     return (
+    <>
+            <h3 className="HomeTitle">Plantify</h3>
         <div className="HomePage">
-            <h2>This is the Home Page</h2>
             {props.allPlants.map((item, i) => {
                 
                 return(
@@ -14,6 +15,7 @@ const Home =(props)=>{
                 )
             } )}
         </div>
+        </>
     )
 }
 export default Home

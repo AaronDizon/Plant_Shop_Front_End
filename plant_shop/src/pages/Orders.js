@@ -29,7 +29,7 @@ const Orders =(props)=>{
                 <div key = {i} className="singleOrder">
                         <p>Order number: {item.id} </p>
                         <p>Order price: {item.total_price}</p>
-                        <Link className="orderlink" to={`/orders/${item.id}`}> {item.date} </Link>
+                        <Link className="orderlink" to={`/orders/${item.id}`}><p className="dateCheckout">{item.date}</p> </Link>
                 </div>
             )
         })

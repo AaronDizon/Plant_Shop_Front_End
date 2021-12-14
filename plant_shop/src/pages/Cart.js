@@ -9,7 +9,7 @@ const Cart=(props)=>{
 
 return(
     <div className="Cart">
-        <h1>Whatever you wanna buy ;)</h1>
+        <h1 className="cartTitle">Your Cart</h1>
         {console.log('cart list',props.cartList)}
            {
                
@@ -18,7 +18,7 @@ return(
                 return(
                     <div key={i} className="cartItem">
                         <h4>{item.name}</h4> 
-                        <p>- ${item.price}</p>
+                        <p>- $ {item.price}</p>
                         <button onClick={()=>{
                             props.deleteItem(i)
                             props.setCartList([...props.cartList])
@@ -29,8 +29,8 @@ return(
                 )
             } )
             }
-            <p> {props.total_price}</p>
-                <Link to='/cart/checkout'>Proceed to Checkout</Link>
+            <p>$ {props.total_price}</p>
+                <Link to='/cart/checkout'><h2 className="cheCkout">Proceed to Checkout</h2></Link>
 
         </div>
     )
