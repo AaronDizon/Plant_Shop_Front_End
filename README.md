@@ -43,9 +43,11 @@ You will also be able to sign up and log on to the website where you can then ad
 | userRoute | .post | '/' |
 | userRoute | .post | '/login' |
 | userRoute | .get | 'verify' |
-| userRoute | .get | '/order/allOrders/:userId' |
-| userRoute | .get | '/order/:orderId/allItems' |
-| orderRoute | .get | '/order/:orderId' |
+| plantRoute | .get | '/plant' |
+| plantRoute | .get | '/plant/:plantId' |
+| orderRoute | .post | '/order/:orderId' |
+| orderRoute | .get | '/order/:userId' |
+| orderRoute | .get | '/order/orderinfo/:orderId' |
 ___
 ### MVP
 
