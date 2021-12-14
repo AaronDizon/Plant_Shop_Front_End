@@ -86,7 +86,7 @@ const Checkout = (props)=>{
                     }
              </div>
             <label>Total Price</label>
-            <p>{props.total_price}</p>
+            <p> $ {props.total_price}</p>
             <input type='submit' value='checkout'/>
             
             
