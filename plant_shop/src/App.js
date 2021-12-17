@@ -72,7 +72,7 @@ const deleteItem= (i)=>{
   
   return (
     <div className="App">
-    <NavigationBar setUser={setUser} user={user} setCartList={setCartList} setTotal={setTotal}/>
+    <NavigationBar setUser={setUser} user={user} cartList={cartList} setCartList={setCartList} setTotal={setTotal}/>
     <Routes>
         <Route path="/" element={<Home allPlants={allPlants}/>}/>
         <Route path="/:id" element={<ItemDetails user={user} cartList={cartList} setCartList= {setCartList} total_price={total_price} setTotal={setTotal}/>} />
@@ -109,7 +109,11 @@ const deleteItem= (i)=>{
       :
       <Navigate to="/"/>
       }/>
-      <Route path="/orders/:orderId" element={<SingleOrder />} />
+      <Route path="/orders/:orderId" element={
+         user.id ?
+      <SingleOrder />
+      :
+      <Navigate to="/"/>} />
         <Route path="/" element={<Home/>}/>
 
     </Routes>

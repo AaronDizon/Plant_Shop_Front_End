@@ -119,7 +119,7 @@ text-shadow:.1vmin .2vmin #2e322e ;
 
 }
 .formButton:hover{
-  font-size: 3.2vmin;
+  font-size: 2.5vmin;
   cursor: pointer;
   text-shadow:1px 1px rgb(4, 4, 4);
 }

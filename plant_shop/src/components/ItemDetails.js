@@ -7,10 +7,10 @@ import axios from "axios"
 const ItemDetails =(props)=>{
 
    
-
+   
     const [plant, setPlantInfo] = useState({})
     const {id} = useParams()
-    console.log(id)
+    // console.log(id)
     const plantUrl = `http://localhost:3001/plant/${id}`
    
     useEffect(()=>{
@@ -43,6 +43,7 @@ return(
 
         props.setCartList([...props.cartList, plant])
         props.setTotal(Number(props.total_price) + Number(plant.price))
+        console.log(props.cartList.length)
     }}>Add to Cart</button>
     :
     null

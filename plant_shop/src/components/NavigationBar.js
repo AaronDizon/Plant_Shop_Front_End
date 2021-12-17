@@ -18,7 +18,7 @@ return(
             props.setTotal(0)
         }}>Logout</p>
         </div>
-        <Link className="NavLink" to="/cart">Cart</Link>
+        <Link className="NavLink" to="/cart">Cart ({props.cartList.length})</Link>
         <Link  className="NavLink"to="/orders">Previous Orders</Link>
         </>
         :
